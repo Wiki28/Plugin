@@ -106,7 +106,7 @@ async def vc_play(event):
 
     elif replied and not replied.audio and not replied.voice or not replied:
 
-        botman = await edit_or_reply(event, "`Searching...`")
+        ultroid_bot = await edit_or_reply(event, "`Searching...`")
 
         query = event.text.split(maxsplit=1)[1]
 
@@ -114,7 +114,7 @@ async def vc_play(event):
 
         if search == 0:
 
-            await botman.edit(
+            await ultroid_bot.edit(
 
                 "**Tidak Dapat Menemukan Lagu** Coba cari dengan Judul yang Lebih Spesifik"
 
@@ -144,7 +144,7 @@ async def vc_play(event):
 
             if hm == 0:
 
-                await botman.edit(f"`{ytlink}`")
+                await ultroid_bot.edit(f"`{ytlink}`")
 
             elif chat_id in QUEUE:
 
@@ -152,7 +152,7 @@ async def vc_play(event):
 
                 caption = f"💡 **Lagu Ditambahkan Ke antrian »** `#{pos}`\n\n**🏷 Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n🎧 **Atas permintaan:** {from_user}"
 
-                await botman.delete()
+                await ultroid_bot.delete()
 
                 await event.client.send_file(
 
@@ -184,7 +184,7 @@ async def vc_play(event):
 
                     caption = f"🏷 **Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar`\n🎧 **Atas permintaan:** {from_user}"
 
-                    await botman.delete()
+                    await ultroid_bot.delete()
 
                     await event.client.send_file(
 
@@ -198,7 +198,7 @@ async def vc_play(event):
 
                     clear_queue(chat_id)
 
-                    await botman.edit(
+                    await ultroid_bot.edit(
 
                         "**ERROR:** `Karena akun sedang berada di obrolan suara`\n\n• Silahkan Coba Play lagi"
 
@@ -208,11 +208,11 @@ async def vc_play(event):
 
                     clear_queue(chat_id)
 
-                    await botman.edit(f"`{ep}`")
+                    await ultroid_bot.edit(f"`{ep}`")
 
     else:
 
-        botman = await edit_or_reply(event, "📥 **Sedang Mendownload**")
+        ultroid_bot = await edit_or_reply(event, "📥 **Sedang Mendownload**")
 
         dl = await replied.download_media()
 
@@ -238,7 +238,7 @@ async def vc_play(event):
 
             )
 
-            await botman.delete()
+            await ultroid_bot.delete()
 
         else:
 
@@ -270,7 +270,7 @@ async def vc_play(event):
 
                 )
 
-                await botman.delete()
+                await ultroid_bot.delete()
 
             except AlreadyJoinedError:
 
@@ -278,7 +278,7 @@ async def vc_play(event):
 
                 clear_queue(chat_id)
 
-                await botman.edit(
+                await ultroid_bot.edit(
 
                     "**ERROR:** `Karena akun sedang berada di obrolan suara`\n\n• Silahkan Coba Play lagi"
 
@@ -288,7 +288,7 @@ async def vc_play(event):
 
                 clear_queue(chat_id)
 
-                await botman.edit(f"`{ep}`")
+                await ultroid_bot.edit(f"`{ep}`")
 
 @ultroid_cmd(pattern="vplay(?:\s|$)([\s\S]*)", group_only=True)
 

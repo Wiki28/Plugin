@@ -58,7 +58,7 @@ from userbot.core.vcbot import (
 
 from userbot.core.vcbot.queues import QUEUE, add_to_queue, clear_queue, get_queue
 
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ultroid_cmd
 
 def vcmention(user):
 
@@ -70,7 +70,7 @@ def vcmention(user):
 
     return f"[{full_name}](tg://user?id={user.id})"
 
-@man_cmd(pattern="play(?:\s|$)([\s\S]*)", group_only=True)
+@ultroid_cmd(pattern="play(?:\s|$)([\s\S]*)", group_only=True)
 
 async def vc_play(event):
 
@@ -290,7 +290,7 @@ async def vc_play(event):
 
                 await botman.edit(f"`{ep}`")
 
-@man_cmd(pattern="vplay(?:\s|$)([\s\S]*)", group_only=True)
+@ultroid_cmd(pattern="vplay(?:\s|$)([\s\S]*)", group_only=True)
 
 async def vc_vplay(event):
 
@@ -638,7 +638,7 @@ async def vc_vplay(event):
 
                     await xnxx.edit(f"`{ep}`")
 
-@man_cmd(pattern="end$", group_only=True)
+@ultroid_cmd(pattern="end$", group_only=True)
 
 async def vc_end(event):
 
@@ -662,7 +662,7 @@ async def vc_end(event):
 
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
-@man_cmd(pattern="skip(?:\s|$)([\s\S]*)", group_only=True)
+@ultroid_cmd(pattern="skip(?:\s|$)([\s\S]*)", group_only=True)
 
 async def vc_skip(event):
 
@@ -716,7 +716,7 @@ async def vc_skip(event):
 
             await event.edit(DELQUE)
 
-@man_cmd(pattern="pause$", group_only=True)
+@ultroid_cmd(pattern="pause$", group_only=True)
 
 async def vc_pause(event):
 
@@ -738,7 +738,7 @@ async def vc_pause(event):
 
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
-@man_cmd(pattern="resume$", group_only=True)
+@ultroid_cmd(pattern="resume$", group_only=True)
 
 async def vc_resume(event):
 
@@ -760,7 +760,7 @@ async def vc_resume(event):
 
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
-@man_cmd(pattern=r"volume(?: |$)(.*)", group_only=True)
+@ultroid_cmd(pattern=r"volume(?: |$)(.*)", group_only=True)
 
 async def vc_volume(event):
 
@@ -800,7 +800,7 @@ async def vc_volume(event):
 
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
-@man_cmd(pattern="playlist$", group_only=True)
+@ultroid_cmd(pattern="playlist$", group_only=True)
 
 async def vc_playlist(event):
 
